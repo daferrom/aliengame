@@ -85,7 +85,15 @@
       <div class="friendtalk">
         <h3>{{ questions[questionIndex].question }}</h3>
       </div>
-      <div class="zombietalk"></div>
+      <div class="zombietalk">
+        <p v-for="character in characterChoices" :key="character">
+          <button @click="pickQuestion(character)">
+            {{ questions[questionIndex][character] }}
+          </button>
+        </p>
+
+        <p></p>
+      </div>
     </section>
   </div>
 </template>
@@ -126,6 +134,10 @@ export default {
       this.$store.commit("pickCharacter", this.characterInput);
       this.$store.commit("updateUIState", "characterChosen");
       console.log(this.characterInput);
+    },
+    pickQuestion(character) {
+      this.$store.commit("pickQuestion", character);
+      console.log(character);
     },
   },
 };
