@@ -3,7 +3,7 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    uiState: "start",
+    uiState: "finish",
     characterChoices: ['baker','mechanic','artist'],
     character:'',
     questionIndex: 0,
