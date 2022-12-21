@@ -18,8 +18,7 @@
 
       <button @click="pickCharacter">Pick your character!</button>
     </GameStateStart>
-    <GameStateFinish v-if="uiState === 'finish'"></GameStateFinish>
-    <section v-else>
+    <section v-else-if="uiState === 'characterChosen'">
       <svg viewBox="0 -180 1628 1180" class="main">
         <defs>
           <clipPath id="bottom-clip">
@@ -95,6 +94,7 @@
         <p></p>
       </div>
     </section>
+    <GameStateFinish v-else />
   </div>
 </template>
 
