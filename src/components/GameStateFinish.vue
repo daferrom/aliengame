@@ -24,13 +24,23 @@
         transform="translate(-8.5 -5.5)"
       />
     </svg>
-    <button>Let's play again!</button>
+    <button @click="restart">Let's play again!</button>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "GameStateFinish",
+  computed: {
+    ...mapState(["uiState"]),
+  },
+  methods: {
+    restart() {
+      this.$store.commit("restartGame");
+    },
+  },
 };
 </script>
 
